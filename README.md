@@ -1,6 +1,11 @@
 # Subir os servidores
 docker compose up -d --build servidor-single servidor-naive servidor-seguro
 
+# Comandos disponiveis
+- CONSULTAR
+- RESERVAR
+- ESTATISTICAS
+
 # Rodar a carga contra a versão segura
 docker compose run --rm cliente servidor-seguro 5000 100 1000
 
