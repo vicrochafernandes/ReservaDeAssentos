@@ -28,3 +28,14 @@ RESERVAR show1 A10      # -> ERRO ASSENTO_OCUPADO
 CONSULTAR show1
 ESTATISTICAS
 SAIR```
+
+# Explicando o funcionamento do Servidor Seguro
+
+```
+Cliente ─► thread da conexão [POOL 1] ─► submit() ─► fila limitada ─► worker [POOL 2] ─► Future ─► resposta
+```
+*[POOL 1] ```poolConexoes```*
+Reaproveita threads ociosas em vez de criar uma Thread por cliente, como no ServidorNaive
+
+*[POOL 2] ```poolWorkers```*
+Executa o processamento de cada comando. Limita quantas reservas rodam ao mesmo tempo.

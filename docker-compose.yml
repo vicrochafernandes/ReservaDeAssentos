@@ -3,18 +3,22 @@ services:
     build: .
     environment:
       MAIN_CLASS: ServidorSingle
+      ATRASO_MS: "5"
     ports: ["5001:5000"]
 
   servidor-naive:
     build: .
     environment:
       MAIN_CLASS: ServidorNaive
+      ATRASO_MS: "2"
     ports: ["5002:5000"]
 
   servidor-seguro:
     build: .
     environment:
       MAIN_CLASS: ServidorSeguro
+      ATRASO_MS: "2"
+
     ports: ["5003:5000"]
 
   cliente:
