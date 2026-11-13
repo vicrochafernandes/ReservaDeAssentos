@@ -1,0 +1,27 @@
+services:
+  servidor-single:
+    build: .
+    environment:
+      MAIN_CLASS: ServidorSingle
+    ports: ["5001:5000"]
+
+  servidor-naive:
+    build: .
+    environment:
+      MAIN_CLASS: ServidorNaive
+    ports: ["5002:5000"]
+
+  servidor-seguro:
+    build: .
+    environment:
+      MAIN_CLASS: ServidorSeguro
+    ports: ["5003:5000"]
+
+  cliente:
+    build: .
+    profiles: ["carga"]          # só roda quando você pedir
+    environment:
+      MAIN_CLASS: ClienteCarga
+    # args do exemplo: host porta assentos clientes
+    command: ["servidor-seguro", "5000", "100", "1000"]
+    depends_on: [servidor-seguro]
