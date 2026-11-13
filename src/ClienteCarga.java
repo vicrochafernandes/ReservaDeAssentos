@@ -3,7 +3,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Arrays;
-
 public class ClienteCarga {
     public static void main(String[] args) {
         // Endereço e porta padrão do servidor (ajuste conforme necessário)

@@ -1,10 +1,25 @@
-# Subir os servidores
-docker compose up -d --build servidor-single servidor-naive servidor-seguro
+# Informações gerais do projeto
 
-# Comandos disponiveis
+# Subir os servidores
+```docker compose up -d --build servidor-single servidor-naive servidor-seguro```
+
+
+
+# Como usar:
+Para os fins de prototipação, denominamos os servidores de acordo com suas respectivas seguranças.
+- servidor-single (single threads);
+- servidor-naive (multithreads mas sem implementação de exclusão mutua no ato de reserva - OVERBOOKING)
+- servidor-seguro (multithreds com exclusão mutua)
+
+## Comandos disponiveis
 - CONSULTAR
 - RESERVAR
 - ESTATISTICAS
+## Passo a passo
+1º) ```docker compose build cliente```
+2º) Na linha de comando digite: ```docker compose run --rm cliente [servidor de escolha] [comando] [nome do show]```
+
+
 
 # Rodar a carga contra a versão segura
 docker compose run --rm cliente servidor-seguro 5000 100 1000
